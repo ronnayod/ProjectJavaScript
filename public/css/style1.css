@@ -1,0 +1,74 @@
+
+@import url('https://fonts.googleapis.com/css2?family=K2D:wght@200&display=swap');
+
+
+body.dd {
+    font-family: 'K2D', sans-serif;
+   
+
+}
+
+hr.style1{
+	border-top: 1px solid #781515;
+    margin-top: 12mm;
+}
+hr.style2{
+	border-top: 5px solid #ff0000;
+}
+
+.div1 {
+    width: 900px;
+    height: 1600px;    
+    padding: 10px;
+    border: 1px solid rgb(241, 241, 241);
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.5);
+}
+.div2 {
+    width: 200px;
+    height: 400px;    
+    padding: 10px;
+    border: 1px solid rgb(241, 241, 241);
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.5);
+}
+.div3 {
+    width: 400px;
+    height: 900px;    
+    padding: 10px;
+    border: 1px solid rgb(241, 241, 241);
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.5);
+}
+
+input.scal{
+    width: 60px;
+    height: 60px;
+}
+
+h3.dd {
+    margin-left: -200px;
+}
+
+div.coco {
+    margin-top: 1cm;
+}
+.maya{
+    margin-left: 200px;
+}
+.se{
+    color: aliceblue;
+}
+h1.mo{
+    margin-top: -5cm;
+    font-size: 100px;
+}
+button.ff{
+    width: 75px;
+    height: 75px;
+}
+.div6 {
+    width: 600px;
+    height: 300px;
+    padding: 10px;
+    border: 1px solid rgb(241, 241, 241);
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.5);
+}
+

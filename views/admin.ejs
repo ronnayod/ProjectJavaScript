@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPARK ROOM</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style1.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+  integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+  crossorigin="anonymous"
+/>
+</head>
+<body>
+ <form action="/index" method="POST">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="admin"><h2>SPARK ROOM</h2></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>        
+          <div class="collapse navbar-collapse" id="navbarMain">
+            <ul class="navbar-nav ms-auto mb-12 mb-lg-0">
+              <a class="navbar-brand" href="/admin"><h4 class="r">จัดการลูกค้า</h4></a>
+              <a class="navbar-brand" href="/checkroom"><h4 class="r">เช็คที่นั่ง</h4></a>
+              <a class="navbar-brand" href="/managerroom"><h4 class="r">จัดการห้อง</h4></a>
+              <a class="navbar-brand" href="/login"><h4 class="r">ออกจากระบบ</h4></a>
+            </ul>
+          </div>              
+      </nav>
+      <br>
+      <div class="container">
+        <div class="col-sm-2">
+           <a href="/member_add">
+               <button type="button" class="btn btn-outline-success">เพิ่มสมาชิก</button></a>
+        </div>
+              <br>
+                  <!-- <div class="container">
+
+
+                     <div class="col-sm-2">
+                        <a href="/member_add">
+                            <button type="button" class="btn btn-outline-success">เพิ่มสมาชิก</button></a>
+                     </div>
+              <br>
+                      <div class="container">
+                            <table class="table">
+                                          <thead class="thead-dark">
+                                              <tr>
+                                                  <th>name</th>
+                                                  <th>username</th>
+                                                  <th>Update</th>
+                                                  <th>Delete</th>
+                                              </tr>
+
+                                          </thead>
+                                          <tbody>
+                                           
+                                             
+                                          </tbody>
+                                      </table>
+                       </div> 
+                    </div> -->
+                    <div class="container">
+                      <div class="container">
+                        <div class="table-responsive">
+                          <table class="table">
+                            <thead class="thead-dark">
+                              <tr align="center">
+                                <th >id</th>
+                                <th >name</th>
+                                <th >username</th>
+                                <th >Action</th>
+                              </tr>
+                            </thead>
+                            <tbody id="mytable" align="center">
+                              <% for(var i = 0; i < users.length; i++) { %> <% if (users[i].isAdmin != true )
+                                { %>
+                              <tr>
+                                <td><%= i + 1 %></td>
+                                <td><%= users[i].name %></td>
+                                <td><%= users[i].username %></td>
+                                <td><a href="/member_update?id=<%= users[i]._id %>"class="btn border-shadow update"><span class="text-gradient"><i class="fas fa-pencil-alt"></i></span></a>
+                                  <a href="/member_del/<%= users[i]._id%>"class="btn border-shadow update"><span class="text-gradient"><i class="fas fa-times"></i></span></a>
+                                  </td>
+                              </tr>
+                              <% } %> <% } %>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                  </div>
+     
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </form>
+    <script src="../server.js"></script>
+    <script>
+        loadTable();
+        //   ใช้งานกับเว็บ
+function loadTable() {
+  
+  const xhttp = new XMLHttpRequest();
+  xhttp.open("GET", "http://localhost:5000/users");
+  xhttp.send();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log(this.responseText);
+       console.log("ssss");
+      var trHTML = ''; 
+      const objects = JSON.parse(this.responseText);
+      for (let object of objects) {
+        trHTML += '<tr>'; 
+        trHTML += '<td>'+object['id']+'</td>';
+        trHTML += '<td>'+object['nameroom']+'</td>';
+        trHTML += '<td><img width="180px" height="200px" src="'+object['image']+'" class="avatar"></td>';
+        trHTML += '<td>'+object['namemovie']+'</td>';
+        trHTML += '<td>'+object['time']+'</td>';
+        trHTML += '<td><button type="button" class="btn btn-outline-secondary" onclick="showUserEditBox('+object['id']+')">Edit</button>';
+        trHTML += "</tr>";
+      }
+      document.getElementById("mytable").innerHTML = trHTML;
+    }
+  };
+}
+
+
+function showUserCreateBox() {
+  Swal.fire({
+    title: 'Create user',
+    html:
+      '<input id="id" class="swal2-input" placeholder="ID">' +
+      '<input id="nameroom" class="swal2-input" placeholder="nameroom">' +
+      '<input id="image" class="swal2-input" placeholder="image">' +
+      '<input id="namemovie" class="swal2-input" placeholder="namemovie">' +
+      '<input id="time" class="swal2-input" placeholder="time">' ,
+    focusConfirm: false,
+    preConfirm: () => {
+      userCreate();
+    }
+  })
+}
+
+function userCreate() {
+  const id = document.getElementById("id").value;
+  const nameroom = document.getElementById("nameroom").value;
+  const image = document.getElementById("image").value;
+  const namemovie = document.getElementById("namemovie").value;
+  const time = document.getElementById("time").value;
+    
+  const xhttp = new XMLHttpRequest();
+  xhttp.open("POST", "http://localhost:5000/users/create");
+  xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  xhttp.send(JSON.stringify({ 
+    "id": id, "nameroom": nameroom, "image": image, "namemovie": namemovie, "time": time
+  }));
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      const objects = JSON.parse(this.responseText);
+      Swal.fire(objects['message']);
+      loadTable();
+    }
+  };
+}
+
+function userDelete(id) {
+  const xhttp = new XMLHttpRequest();
+  xhttp.open("DELETE", "http://localhost:5000/users/delete");
+  xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  xhttp.send(JSON.stringify({ 
+    "id": id
+  }));
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4) {
+      const objects = JSON.parse(this.responseText);
+      Swal.fire(objects['message']);
+      loadTable();
+    } 
+  };
+}
+
+function showUserEditBox(id) {
+  console.log(id);
+  const xhttp = new XMLHttpRequest();
+  xhttp.open("GET", "http://localhost:5000/users/"+id);
+  xhttp.send();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      const objects = JSON.parse(this.responseText);
+      const user = objects['user'];
+      console.log(user);
+      Swal.fire({
+        title: 'Edit User',
+        html:
+          '<input id="id" class="swal2-input" placeholder="First" value="'+user['id']+'" disabled>' +
+          '<input id="nameroom" class="swal2-input" placeholder="nameroom" value="'+user['nameroom']+'">' +
+          '<input id="image" class="swal2-input" placeholder="image" value="'+user['image']+'">' +
+          '<input id="namemovie" class="swal2-input" placeholder="namemovie" value="'+user['namemovie']+'">' +
+          '<input id="time" class="swal2-input" placeholder="time" value="'+user['time']+'">' ,
+        focusConfirm: false,
+        preConfirm: () => {
+          userEdit();
+        }
+      })
+    }
+  };
+}
+
+function userEdit() {
+  const id = document.getElementById("id").value;
+  const nameroom = document.getElementById("nameroom").value;
+  const image = document.getElementById("image").value;
+  const namemovie = document.getElementById("namemovie").value;
+  const time = document.getElementById("time").value;
+    
+  const xhttp = new XMLHttpRequest();
+  xhttp.open("PUT", "http://localhost:5000/users/update");
+  xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  xhttp.send(JSON.stringify({ 
+    "id": id, "nameroom": nameroom, "image": image, "namemovie": namemovie, "time": time
+  }));
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      const objects = JSON.parse(this.responseText);
+      Swal.fire(objects['message']);
+      loadTable();
+    }
+  };
+}
+    </script>
+  
+  
+  </body>
+</html>

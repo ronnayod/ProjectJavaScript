@@ -1,0 +1,36 @@
+//ดูข้อมูลทั้งหมดในdatabase
+GET http://localhost:5000/room
+
+//ดูข้อมูลในdatabase โดยเช็คแต่ละID
+###
+GET http://localhost:5000/room/626a81665d3f82ec4547f94d
+
+//เพิ่มข้อมูลเข้าbatabase
+###
+POST http://localhost:5000/register
+Content-Type: application/json
+
+{
+              "nameroom":"asd",
+              "image":"https://movie44.com/wp-content/uploads/2022/04/LEIO-2022-%E0%B9%82%E0%B8%84%E0%B8%95%E0%B8%A3%E0%B9%81%E0%B8%A2%E0%B9%89%E0%B8%A2%E0%B8%B1%E0%B8%81%E0%B8%A9%E0%B9%8C.jpg.webp",
+              "namemovie":"zxc",
+              "time":"12.00-15.00"
+              
+}
+
+//ลบข้อมูลในbatabase ตามID
+###
+DELETE http://localhost:5000/subscribers/62650827df95ea3181614c64
+
+//updateข้อมูลในbatabase ตามID
+###
+PATCH http://localhost:5000/subscribers/62640f5220fcbb5f108e566c
+Content-Type: application/json
+
+{
+             "name":"kantapphon",
+              "username":"Twin001",
+              "password":"123456"
+              
+
+}

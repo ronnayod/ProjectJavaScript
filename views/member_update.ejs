@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+              <meta charset="UTF-8">
+              <meta http-equiv="X-UA-Compatible" content="IE=edge">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>SPARK ROOM</title>
+              <link rel="stylesheet" href="css/style.css">
+              <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+              <form action="./auth/update" method="POST">
+                            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                              <div class="container">
+                                <a class="navbar-brand" href="admin"><h2>SPARK ROOM</h2></a>
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+                                  <span class="navbar-toggler-icon"></span>
+                                </button>        
+                                <div class="collapse navbar-collapse" id="navbarMain">
+                      
+                                  <ul class="navbar-nav ms-auto mb-12 mb-lg-0">
+                                    <a class="navbar-brand" href="/admin"><h4 class="r">จัดการลูกค้า</h4></a>
+                                    <a class="navbar-brand" href="/checkroom"><h4 class="r">เช็คที่นั่ง</h4></a>
+                                    <a class="navbar-brand" href="/managerroom"><h4 class="r">จัดการห้อง</h4></a>
+                                    <a class="navbar-brand" href="/login"><h4 class="r">ออกจากระบบ</h4></a>
+                                  </ul>
+                                </div>              
+                            </nav>
+                            <br>
+                            <!--  รายละเอียด   -->
+                            <div class="container">
+                               <div class="col-sm-2">
+                                          <a href="/admin">
+                                          <button type="button" class="btn btn-outline-info">back</button></a>
+                                </div>
+                                <center>
+                                          <h1>แก้ไขข้อมูลสมาชิก</h1>
+                                          <br>
+                                <div class="row">
+                                  <div class ="col-sm-2"></div>
+                                          <div class ="col-sm-2"><label for="fname">Username:</label></div>
+                                          <div class ="col-sm-8"> <input type="text" id="username" name="username" size="80px" value="<%=users.username%>"></div>
+                                          <br>
+                                          <br>
+                                          <div class ="col-sm-2"></div>
+                                          <div class ="col-sm-2"><label for="fname">name:</label></div>
+                                          <div class ="col-sm-8"> <input type="text" id="name" name="name" size="80px" value="<%=users.name%>"></div>
+                                                  <input type="hidden" name="id" value="<%=users._id%>">          
+                                                  
+                            <!--  จบรายละเอียด   -->
+                                                  
+                            <!--  Button   -->
+                            <br>
+                            <br>
+                            <br>
+                            <div class="form-group">
+                              <button type="submit" class="btn text-dark update">Save</button>
+                            </div>
+                              <div class = "row">
+                              </div>
+                            <!--  Button   -->
+                            </center>                          
+                      
+              <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>                            
+              </form>
+</body>
+</html>

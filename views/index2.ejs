@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPARK ROOM</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous"
+  />
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  </head>
+  
+<body>
+ <form action="/index" method="POST">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="index2"><h2>SPARK ROOM</h2></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>        
+          <div class="collapse navbar-collapse" id="navbarMain">
+            <ul class="navbar-nav ms-auto mb-12 mb-lg-0">
+              <!-- <a class="navbar-brand" href="#"><h4 class="r">ข้อมูลผู้ใช้</h4></a> -->
+              <a class="navbar-brand" href="/login"><h4 class="r">ออกจากระบบ</h4></a>
+            </ul>
+          </div>              
+      </nav>
+      <br>
+      <br>
+      <div class="container div1">
+     
+      <h1>เลือกห้องที่จอง</h1>
+      <br>
+  
+      <div class="row">
+        <tr>
+          <td>
+            <div class="col-md-5">
+              <a href="/room1" target="_blank"><img src="image/SPARK1.jpg" class="d-block w-50"></a>
+            </div>
+            <%= movie[0].nameroom %> 
+            <%= movie[0].namemovie %>
+            <img src="<%= movie[0].image %> "  class="d-block w-25 h-25"  >
+            <%= movie[0].time %>
+           
+           
+          </td>
+        </tr>
+      </div> 
+   
+    <hr class="style1">
+      
+      <div class="row">
+        <tr>
+          <td>
+            <div class="col-md-5">
+              <a href="/room2" target="_blank"><img src="image/SPARK2.jpg" class="d-block w-50"></a>
+            </div>
+            <%= movie[1].nameroom %>
+            <%= movie[1].namemovie %>
+            <img src="<%= movie[1].image %>" class="d-block w-25 h-25">
+            <%= movie[1].time %>
+          </td>
+        </tr>
+      </div>
+
+    <hr class="style1">
+  
+    <div class="row">
+      <tr>
+        <td>
+          <div class="col-md-5">
+            <a href="/room2" target="_blank"><img src="image/SPARK3.jpg" class="d-block w-50"></a>
+          </div>
+          <%= movie[2].nameroom %>
+          <%= movie[2].namemovie %>
+          <img src="<%= movie[2].image %>" class="d-block w-25 h-25">
+          <%= movie[2].time %>
+        </td>
+      </tr>
+    </div>
+  
+    <hr class="style1">
+  
+    <div class="row">
+      <tr>
+        <td>
+          <div class="col-md-5">
+            <a href="/room2" target="_blank"><img src="image/SPARK4.jpg" class="d-block w-50"></a>
+          </div>
+          <%= movie[3].nameroom %>
+          <%= movie[3].namemovie %>
+          <img src="<%= movie[3].image %>" class="d-block w-25 h-25">
+          <%= movie[3].time %>
+        </td>
+      </tr>
+    </div>
+</form>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  
+    </body>
+</html>

@@ -1,0 +1,55 @@
+h4.r{
+    color: aliceblue;
+}
+div.dd{
+    margin-top: 7cm;
+}
+table.rr{
+    height: 3cm;
+}
+tr.ss{
+    margin-top: 5cm;
+}
+.main{
+    width: 600px;
+    max-width:  900%;
+    text-align: center;
+    background-color: aliceblue;
+    padding: 50px;
+}
+
+.main > h1 {
+    font-size: 30px;
+    color: #000;
+    margin: 0 0 50px 0;
+}
+
+.main > form > button {
+    background-color: rgb(157, 87, 167);
+    padding: 15px;
+    width: 55%;
+    border: none;
+    color: rgb(253, 253, 253);
+    margin-top: 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.main > form > input {
+    background-color: rgb(241, 237, 241);
+    padding: 15px;
+    width: 55%;
+    border: none;
+    color: rgb(66, 52, 52);
+    border-radius: 8px;
+}
+
+.main > form > input:focus ,
+.main > form > button:focus {
+    outline: none;
+}
+.asd{
+    width: 20px;
+    height: 20px;
+}
